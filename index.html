@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Trip Sorter</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <script src="api.js"></script>
+    <script src="csschange.js"></script>
+    <script>
+    var card1 = new Card.Train("Madrid", "Barcelona", "78A", "45B"),
+        card2 = new Card.AirportBus("Barcelona", "Gerona Airport"),
+        card3 = new Card.Airplane("Gerona Airport", "Stockholm", "SK455", "45B", "3A","344"),
+        card4 = new Card.Airplane("Stockholm", "New York JFK", "SK22", "22","7B"),
+        card5 = new Card.Transport("New York JFK","Boston", "bus", "74"),
+        gate1 = [card3, card4, card1, card5, card2],
+        gate2 = [card5, card4, card3, card2, card1],
+        gate3 = [card3, card2],
+        gate4 = [card1, card5],
+        gate5 = [card1, card3, card5];
+    console.log('After Sort');
+
+    var result1 = Card.sort(gate1),
+        result2 = Card.sort(gate2),
+        result3 = Card.sort(gate3), 
+        result4 = Card.sort(gate4),
+        result5 = Card.sort(gate5);
+
+     console.log('- - - - - - - - gate1-after sort');
+     showGate(result1);
+
+     console.log('- - - - - - - - gate2-after sort');
+     showGate(result2);
+
+     console.log('- - - - - - - - gate3-after sort');
+     showGate(result3);
+
+     console.log('- - - - - - - - gate 4 failed validation. unsorted');
+     showGate(result4);
+
+    console.log('- - - - - - - - gate 5 failed validation. unsorted');
+     showGate(result5);
+
+
+    function showGate(arr){
+      for (var i = 0, l = arr.length; i < l; i++) {
+        console.log(arr[i].display());
+      };
+    }
+    </script>
+  </body>
+</html>
