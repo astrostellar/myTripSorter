@@ -2,6 +2,7 @@ $ = (function() {
   function Sel(str) {
     var a = {};
     a._el = document.querySelector(str);
+    
     a.add = function(str) {
       var
         update = false,
@@ -12,7 +13,6 @@ $ = (function() {
         arr.push(str);
         this._el.className = arr.join(' ');
       }
-
 
       if (update === true) {
         this._el.setAttribute("class", this._el.className.toString());
